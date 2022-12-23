@@ -1,0 +1,17 @@
+version: '2'
+services:
+  web:
+    build: .
+    container_name: web
+    volumes:
+      - .:/app
+    ports:
+      - "5000:5000"
+    depends_on:
+      - redis
+  redis:
+    image: redis
+    container_name: redis
+    ports:
+      - "6379:6379"
+  
